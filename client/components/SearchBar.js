@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
 function SearchBar({ onSearch }) {
   const [query, SetQuery] = useState('');
 
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      onSearch(query);
-    }
+  const handleSubmit = () => {
+    onSearch(query);
   };
 
   return (
     <div className='search-bar'>
       <input
         type='text'
-        placeholder='Search here'
+        placeholder='🔍 Ready to explore?'
         value={query}
         onChange={(event) => SetQuery(event.target.value)}
-        onKeyDown={handleKeyDown}
       />
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
